@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50556
+Source Server         : localhost_3306
+Source Server Version : 50615
 Source Host           : localhost:3306
 Source Database       : duanxueqi
 
 Target Server Type    : MYSQL
-Target Server Version : 50556
+Target Server Version : 50615
 File Encoding         : 65001
 
-Date: 2018-07-10 14:21:51
+Date: 2018-07-15 14:20:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,8 +57,8 @@ CREATE TABLE `t_course_apply` (
   `teacher_userid` varchar(50) DEFAULT NULL,
   `course_name` varchar(50) DEFAULT NULL,
   `course_remark` longtext,
+  `check_result` int(11) DEFAULT NULL,
   `tx` varchar(50) DEFAULT NULL,
-  `check_result` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`apply_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -106,12 +106,14 @@ DROP TABLE IF EXISTS `t_teacher_apply`;
 CREATE TABLE `t_teacher_apply` (
   `userid` varchar(50) DEFAULT NULL,
   `apply_remark` longtext,
-  `check_result` tinyint(4) DEFAULT NULL
+  `check_result` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_teacher_apply
 -- ----------------------------
+INSERT INTO `t_teacher_apply` VALUES ('12', '2222222', '1');
+INSERT INTO `t_teacher_apply` VALUES ('13', '2222', '2');
 
 -- ----------------------------
 -- Table structure for t_user
@@ -121,7 +123,7 @@ CREATE TABLE `t_user` (
   `userid` varchar(50) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
-  `is_teacher` tinyint(4) DEFAULT NULL,
+  `is_teacher` int(11) DEFAULT NULL,
   `tx` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -129,3 +131,5 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
+INSERT INTO `t_user` VALUES ('12', '12', '12', '1', null);
+INSERT INTO `t_user` VALUES ('13', '13', '13', '2', null);
